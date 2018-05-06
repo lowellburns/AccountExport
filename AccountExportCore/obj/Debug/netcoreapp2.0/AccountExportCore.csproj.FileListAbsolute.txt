@@ -1,0 +1,11 @@
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\bin\Debug\netcoreapp2.0\AccountExportCore.deps.json
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\bin\Debug\netcoreapp2.0\AccountExportCore.runtimeconfig.json
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\bin\Debug\netcoreapp2.0\AccountExportCore.runtimeconfig.dev.json
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\bin\Debug\netcoreapp2.0\AccountExportCore.dll
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\bin\Debug\netcoreapp2.0\AccountExportCore.pdb
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\obj\Debug\netcoreapp2.0\AccountExportCore.csprojResolveAssemblyReference.cache
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\obj\Debug\netcoreapp2.0\AccountExportCore.csproj.CoreCompileInputs.cache
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\obj\Debug\netcoreapp2.0\AccountExportCore.AssemblyInfoInputs.cache
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\obj\Debug\netcoreapp2.0\AccountExportCore.AssemblyInfo.cs
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\obj\Debug\netcoreapp2.0\AccountExportCore.dll
+C:\Users\lburns\Documents\Visual Studio 2017\Projects\AccountExportCore\AccountExportCore\obj\Debug\netcoreapp2.0\AccountExportCore.pdb

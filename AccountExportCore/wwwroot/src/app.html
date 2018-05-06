@@ -1,0 +1,24 @@
+﻿    <template>
+    <h1>${heading}</h1>
+
+    <select value.bind="selectedClientId" change.delegate="DropdownChanged(selectedClientId)">
+        <option repeat.for="client of clients" value="${client.Id}">
+            ${client.Name}
+        </option>
+    </select>
+
+    <div if.bind="selectedClientId != -1">
+        Hello ${selectedClient.Name}
+    </div>
+
+
+    <!--https://ilikekillnerds.com/2016/02/shared-state-in-aurelia/-->
+
+    <!--display current customers-->
+    <!--view export history-->
+    <!--setup export definition-->
+    <!--setup export schedule-->
+    <!--run an export now-->
+
+
+</template>

@@ -1,0 +1,98 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+	<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Pages\Index.cshtml" />
+    <Content Remove="wwwroot\%2a%2a" />
+    <Content Remove="wwwroot\src\DataService.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\.editorconfig" />
+    <Content Include="wwwroot\.gitignore" />
+    <Content Include="wwwroot\aurelia_project\aurelia.json" />
+    <Content Include="wwwroot\aurelia_project\environments\dev.ts" />
+    <Content Include="wwwroot\aurelia_project\environments\prod.ts" />
+    <Content Include="wwwroot\aurelia_project\environments\stage.ts" />
+    <Content Include="wwwroot\aurelia_project\generators\attribute.json" />
+    <Content Include="wwwroot\aurelia_project\generators\attribute.ts" />
+    <Content Include="wwwroot\aurelia_project\generators\binding-behavior.json" />
+    <Content Include="wwwroot\aurelia_project\generators\binding-behavior.ts" />
+    <Content Include="wwwroot\aurelia_project\generators\component.json" />
+    <Content Include="wwwroot\aurelia_project\generators\component.ts" />
+    <Content Include="wwwroot\aurelia_project\generators\element.json" />
+    <Content Include="wwwroot\aurelia_project\generators\element.ts" />
+    <Content Include="wwwroot\aurelia_project\generators\generator.json" />
+    <Content Include="wwwroot\aurelia_project\generators\generator.ts" />
+    <Content Include="wwwroot\aurelia_project\generators\task.json" />
+    <Content Include="wwwroot\aurelia_project\generators\task.ts" />
+    <Content Include="wwwroot\aurelia_project\generators\value-converter.json" />
+    <Content Include="wwwroot\aurelia_project\generators\value-converter.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\build.json" />
+    <Content Include="wwwroot\aurelia_project\tasks\build.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\copy-files.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\environment.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\lint.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\process-css.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\process-markup.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\run.json" />
+    <Content Include="wwwroot\aurelia_project\tasks\run.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\transpile.ts" />
+    <Content Include="wwwroot\aurelia_project\tasks\watch.ts" />
+    <Content Include="wwwroot\favicon.ico" />
+    <Content Include="wwwroot\index.html" />
+    <Content Include="wwwroot\package-lock.json" />
+    <Content Include="wwwroot\package.json" />
+    <Content Include="wwwroot\scripts\.DS_Store" />
+    <Content Include="wwwroot\scripts\app-bundle.js" />
+    <Content Include="wwwroot\scripts\app-bundle.js.map" />
+    <Content Include="wwwroot\scripts\aurelia-core.js" />
+    <Content Include="wwwroot\scripts\aurelia-core.min.js" />
+    <Content Include="wwwroot\scripts\aurelia-routing.js" />
+    <Content Include="wwwroot\scripts\aurelia-routing.min.js" />
+    <Content Include="wwwroot\scripts\config-esnext.js" />
+    <Content Include="wwwroot\scripts\config-typescript.js" />
+    <Content Include="wwwroot\scripts\system.js" />
+    <Content Include="wwwroot\scripts\vendor-bundle.js" />
+    <Content Include="wwwroot\src\.DS_Store" />
+    <Content Include="wwwroot\src\app.html" />
+    <Content Include="wwwroot\src\app.ts" />
+    <Content Include="wwwroot\src\client.ts" />
+    <Content Include="wwwroot\src\DataService.js" />
+    <Content Include="wwwroot\src\DataService.js.map" />
+    <Content Include="wwwroot\src\environment.ts" />
+    <Content Include="wwwroot\src\file.js" />
+    <Content Include="wwwroot\src\file.js.map" />
+    <Content Include="wwwroot\src\main.ts" />
+    <Content Include="wwwroot\src\todo.js" />
+    <Content Include="wwwroot\src\todo.js.map" />
+    <Content Include="wwwroot\src\todo.ts" />
+    <Content Include="wwwroot\src\UserState.ts" />
+    <Content Include="wwwroot\tsconfig.json" />
+    <Content Include="wwwroot\tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="aurelia-http-client.TypeScript.DefinitelyTyped" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="systemjs.TypeScript.DefinitelyTyped" Version="0.0.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="wwwroot\custom_typings\" />
+    <Folder Include="wwwroot\scripts\babel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pages\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\src\DataService.ts" />
+  </ItemGroup>
+</Project>
