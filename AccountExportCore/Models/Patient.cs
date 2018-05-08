@@ -14,7 +14,7 @@ namespace AccountExportCore2.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
-        public string SocialSecuirtyNumber { get; set; }
+        public string SocialSecurityNumber { get; set; }
 
         public ICollection<Account> Account { get; set; }
 

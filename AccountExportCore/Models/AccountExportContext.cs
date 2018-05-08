@@ -145,7 +145,7 @@ namespace AccountExportCore2.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SocialSecuirtyNumber)
+                entity.Property(e => e.SocialSecurityNumber)
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });

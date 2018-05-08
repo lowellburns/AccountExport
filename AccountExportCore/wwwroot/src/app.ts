@@ -133,6 +133,56 @@ export class App {
     }
     else if (selectedClientId == 2) {
       // veteran hospital
+      let exportTables = new Array<QueryableTable>();
+
+      //account table
+      let exportAccountColumns: QueryableColumn[] = new Array<QueryableColumn>();
+      exportAccountColumns.push(new QueryableColumn("ClientId", "int", true, false, "", ""));
+      exportAccountColumns.push(new QueryableColumn("AccountNumber", "string", true, false, "", ""));
+      exportAccountColumns.push(new QueryableColumn("Balance", "decimal", true, true,"1", "100.00"));
+      exportAccountColumns.push(new QueryableColumn("FacilityId", "int", true, false, "", ""));
+      exportAccountColumns.push(new QueryableColumn("AdmitDate", "datetime", true, false, "", ""));
+      exportAccountColumns.push(new QueryableColumn("DischargeDate", "datetime", true, false, "", ""));
+      exportAccountColumns.push(new QueryableColumn("PatientId", "int", true, false, "", ""));
+
+
+      let exportAccountTable: QueryableTable = new QueryableTable("Account", "true", exportAccountColumns);
+      exportTables.push(exportAccountTable);
+
+      //patient table
+      let exportPatientColumns: QueryableColumn[] = new Array<QueryableColumn>();
+      exportPatientColumns.push(new QueryableColumn("SocialSecurityNumber", "string", true, false, "", ""));
+
+      let exportPatientTable: QueryableTable = new QueryableTable("Patient", "true", exportPatientColumns);
+      exportTables.push(exportPatientTable);
+
+      //insurance table
+      let exportInsuranceColumns: QueryableColumn[] = new Array<QueryableColumn>();
+      exportInsuranceColumns.push(new QueryableColumn("PlanName", "string", true, false, "", ""));
+      exportInsuranceColumns.push(new QueryableColumn("Policy", "string", true, false, "", ""));
+      exportInsuranceColumns.push(new QueryableColumn("GroupNumber", "string", true, false, "", ""));
+
+      let exportInsuranceTable: QueryableTable = new QueryableTable("Insurance", "true", exportInsuranceColumns);
+      exportTables.push(exportInsuranceTable);
+
+      //facilty table
+      let exportFacilityColumns: QueryableColumn[] = new Array<QueryableColumn>();
+      exportFacilityColumns.push(new QueryableColumn("FacilityName", "string", true, false, "", ""));
+      exportFacilityColumns.push(new QueryableColumn("AddressLine1", "string", true, false, "", ""));
+      exportFacilityColumns.push(new QueryableColumn("AddressLine2", "string", true, false, "", ""));
+      exportFacilityColumns.push(new QueryableColumn("City", "string", true, false, "", ""));
+      exportFacilityColumns.push(new QueryableColumn("State", "string", true, false, "", ""));
+      exportFacilityColumns.push(new QueryableColumn("Zip", "string", true, false, "", ""));
+
+      let exportFacilityTable: QueryableTable = new QueryableTable("Facility", "true", exportFacilityColumns);
+      exportTables.push(exportFacilityTable);
+
+      let exportFileFormat = "[ClientId],[AccountNumber],[Balance],[FacilityId],[AdmitDate],[DischargeDate],[SocialSecurityNumber],[PlanName],[Policy],[GroupNumber],[FacilityName],[AddressLine1],[AddressLine2],[City],[State],[Zip]";
+
+      let exportDef: ExportDefinition = new ExportDefinition("export-[yyyy]-[mm]-[dd].[FacilityName].csv", selectedClientId, exportFileFormat , true, exportTables);
+
+      this.currentExportDef = exportDef;
+
 
 
 

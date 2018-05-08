@@ -87,28 +87,28 @@ namespace AccountExportCore.Controllers
                         {
                             //filter on the specified column with the chosen filterValue
                             //compare to returns -1 for less than, 0 for equals, and 1 for greater than. 
-                            returnData = returnData.Where(a => int.Parse(a.GetType().GetProperty(item.ColumnName.ToLower()).GetValue(a).ToString()).CompareTo(int.Parse(item.FilterValue)) == int.Parse(item.FilterType));
+                            returnData = returnData.Where(a => int.Parse(a.GetType().GetProperty(item.ColumnName).GetValue(a).ToString()).CompareTo(int.Parse(item.FilterValue)) == int.Parse(item.FilterType));
                         }
                         else if (item.DataType.ToLower().Contains("decimal"))
                         {
 
                             //filter on the specified column with the chosen filterValue
                             //compare to returns -1 for less than, 0 for equals, and 1 for greater than. 
-                            returnData = returnData.Where(a => decimal.Parse(a.GetType().GetProperty(item.ColumnName.ToLower()).GetValue(a).ToString()).CompareTo(decimal.Parse(item.FilterValue)) == int.Parse(item.FilterType));
+                            returnData = returnData.Where(a => decimal.Parse(a.GetType().GetProperty(item.ColumnName).GetValue(a).ToString()).CompareTo(decimal.Parse(item.FilterValue)) == int.Parse(item.FilterType));
                         }
                         else if (item.DataType.ToLower().Contains("date"))
                         {
 
                             //filter on the specified column with the chosen filterValue
                             //compare to returns -1 for less than, 0 for equals, and 1 for greater than. 
-                            returnData = returnData.Where(a => DateTime.Parse(a.GetType().GetProperty(item.ColumnName.ToLower()).GetValue(a).ToString()).CompareTo(DateTime.Parse(item.FilterValue)) == int.Parse(item.FilterType));
+                            returnData = returnData.Where(a => DateTime.Parse(a.GetType().GetProperty(item.ColumnName).GetValue(a).ToString()).CompareTo(DateTime.Parse(item.FilterValue)) == int.Parse(item.FilterType));
                         }
                         else
                         {
                             //string
                             //filter on the specified column with the chosen filterValue
                             //compare to returns -1 for less than, 0 for equals, and 1 for greater than. 
-                            returnData = returnData.Where(a => a.GetType().GetProperty(item.ColumnName.ToLower()).GetValue(a).ToString().CompareTo(item.FilterValue) == int.Parse(item.FilterType));
+                            returnData = returnData.Where(a => a.GetType().GetProperty(item.ColumnName).GetValue(a).ToString().CompareTo(item.FilterValue) == int.Parse(item.FilterType));
                         }
                     }
 
@@ -127,17 +127,41 @@ namespace AccountExportCore.Controllers
 
 
             List<Object> selectedObjects = new List<object>();
-            if (exportDefinition.RepeatByFacility)
+            if (returnData != null)
             {
-                var FacilityIds = returnData.Select(a => a.FacilityId).ToList().Distinct();
-
-                foreach (var faclityId in FacilityIds)
+                returnData = returnData.Distinct();
+                if (exportDefinition.RepeatByFacility)
                 {
-                    var faclityData = returnData.Where(d => d.FacilityId == faclityId);
-                    var CurrentFaclityName = faclityData.FirstOrDefault().Facility.FacilityName;
-                    selectedObjects = getSelectedObjectList(faclityData, AccountFilter, FacilityFilter, PatientFilter, InsuranceFilter);
+                    var FacilityIds = returnData.Select(a => a.FacilityId).ToList().Distinct();
 
-                    fileName = fileName.Replace("[FacilityName]", CurrentFaclityName);
+                    foreach (var faclityId in FacilityIds)
+                    {
+                        var faclityData = returnData.Where(d => d.FacilityId == faclityId);
+                        var newFileName = fileName;
+                        var CurrentFaclityName = faclityData.FirstOrDefault().Facility.FacilityName;
+                        selectedObjects = getSelectedObjectList(faclityData, AccountFilter, FacilityFilter, PatientFilter, InsuranceFilter);
+
+                        newFileName = newFileName.Replace("[FacilityName]", CurrentFaclityName);
+
+                        var exportMemoryStream = getExportFileContents(selectedObjects, exportDefinition.ExportFormat);
+
+
+                        //var response = File(exportMemoryStream, "application/octet-stream"); // FileStreamResult
+
+                        returnList.Add(new ExportResults()
+                        {
+                            FileContents = new StreamReader(exportMemoryStream).ReadToEnd(),
+                            Filename = newFileName
+                        }
+                        );
+
+                    }
+
+                }
+                else
+                {
+
+                    selectedObjects = getSelectedObjectList(returnData, AccountFilter, FacilityFilter, PatientFilter, InsuranceFilter);
 
                     var exportMemoryStream = getExportFileContents(selectedObjects, exportDefinition.ExportFormat);
 
@@ -150,28 +174,8 @@ namespace AccountExportCore.Controllers
                         Filename = fileName
                     }
                     );
-
                 }
-
             }
-            else
-            {
-
-                 selectedObjects = getSelectedObjectList(returnData, AccountFilter, FacilityFilter, PatientFilter, InsuranceFilter);
-
-                var exportMemoryStream = getExportFileContents(selectedObjects, exportDefinition.ExportFormat);
-
-
-                //var response = File(exportMemoryStream, "application/octet-stream"); // FileStreamResult
-
-                returnList.Add(new ExportResults()
-                {
-                    FileContents = new StreamReader(exportMemoryStream).ReadToEnd(),
-                    Filename = fileName
-                }
-                );
-            }
-
             return returnList;
 
         }
