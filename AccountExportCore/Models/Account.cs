@@ -23,5 +23,6 @@ namespace AccountExportCore2.Models
         public Facility Facility { get; set; }
         public Patient Patient { get; set; }
         public ICollection<AccountInsurance> AccountInsurance { get; set; }
+        
     }
 }

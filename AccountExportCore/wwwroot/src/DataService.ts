@@ -2,6 +2,9 @@
 //import HttpClient = require("aurelia-http-client");
 import { HttpClient } from 'aurelia-http-client';
 import { Client } from './client';
+import { ExportDefinition } from './exportDefinition';
+import { debug } from 'util';
+import { ExportResults } from 'ExportResults';
 //import * as HttpClient from '../scripts/aurelia-http-client.js';
 
 export class DataService {
@@ -25,7 +28,24 @@ export class DataService {
             
             });
        
-    }
+  }
+
+  postData(path,data, callback: (n: string) => any) {
+
+    let client = new HttpClient();
+    client.post(path, data)
+      .then(response => {
+
+        console.log(response);
+        if (response.isSuccess) {
+          
+          callback(response.response);
+        }
+
+
+      });
+
+  }
 
   getClients(callbackParent: (n: Client[]) => any) {
 
@@ -39,6 +59,21 @@ export class DataService {
 
     this.getData("api/Clients", receiveClientsString);
 
+  }
+
+  postExportDefinition(exportDef : ExportDefinition, callbackParent: (n: ExportResults[]) => any) {
+
+    
+    var receivePostResponse = (postResponse: string): void => {
+
+      
+      var returnObject = this.toInstance(new Array<ExportResults>(), postResponse);
+      debugger
+      callbackParent(returnObject);
+
+    }
+
+    this.postData("api/Export", exportDef, receivePostResponse);
   }
 
 

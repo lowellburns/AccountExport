@@ -59,6 +59,10 @@
     <Content Include="wwwroot\src\.DS_Store" />
     <Content Include="wwwroot\src\app.html" />
     <Content Include="wwwroot\src\app.ts" />
+    <Content Include="wwwroot\src\queryableColumn.ts" />
+    <Content Include="wwwroot\src\ExportResults.ts" />
+    <Content Include="wwwroot\src\queryableTable.ts" />
+    <Content Include="wwwroot\src\exportDefinition.ts" />
     <Content Include="wwwroot\src\client.ts" />
     <Content Include="wwwroot\src\DataService.js" />
     <Content Include="wwwroot\src\DataService.js.map" />

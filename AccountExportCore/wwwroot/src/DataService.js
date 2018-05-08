@@ -19,7 +19,7 @@ var DataService = /** @class */ (function () {
         });
     };
     DataService.prototype.getClients = function () {
-        debugger;
+        ;
         var clients = this.getData("'api/Clients'");
         return clients;
     };

@@ -17,5 +17,10 @@ namespace AccountExportCore2.Models
         public string SocialSecuirtyNumber { get; set; }
 
         public ICollection<Account> Account { get; set; }
+
+        public string FirstInitial { get {
+                return FirstName.Substring(0, 1);
+            }
+        }
     }
 }
