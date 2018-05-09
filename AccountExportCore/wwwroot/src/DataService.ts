@@ -68,7 +68,7 @@ export class DataService {
 
       
       var returnObject = this.toInstance(new Array<ExportResults>(), postResponse);
-      debugger
+      
       callbackParent(returnObject);
 
     }

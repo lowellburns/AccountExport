@@ -246,10 +246,12 @@ namespace AccountExportCore.Controllers
                             //add a single column value to our export row. 
                             var exportValue = InsuranceItem.Insurance.GetType().GetProperty(column.ColumnName).GetValue(InsuranceItem.Insurance);
                             tempRow.Add(new KeyValuePair<string, object>(column.ColumnName, exportValue));
-                            InsuranceRows.Add(tempRow);
 
-                            newExportRow = tempRow;
                         }
+
+                        InsuranceRows.Add(tempRow);
+
+                        newExportRow = tempRow;
 
 
                     }
